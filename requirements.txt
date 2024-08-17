@@ -1,0 +1,6 @@
+Flask==3.0.3
+uWSGI==2.0.26
+elevenlabs==1.7.0
+Flask-Cors==4.0.1
+g4f==0.3.2.4
+curl-cffi==0.7.1

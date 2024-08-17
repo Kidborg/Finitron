@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000; /* Черный фон */
+    color: #fff; /* Белый текст */
+    margin: 0;
+}
+
+.chat-container {
+    background: #2c2c2c; /* Темный фон для контейнера */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Красная тень */
+    width: 90%; /* Устанавливаем максимальную ширину */
+    max-width: 2000px; /* Ограничиваем максимальную ширину */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 80vh; /* Устанавливаем фиксированную высоту контейнера */
+}
+
+.chat-box {
+    flex: 1;
+    overflow-y: auto; /* Добавляем вертикальную прокрутку */
+    margin-bottom: 10px;
+    white-space: pre-wrap; /* Сохраняем пробелы и табуляции */
+}
+
+.user-message, .bot-message {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    word-wrap: break-word; /* Переносим слова, если они слишком длинные */
+}
+
+.user-message {
+    background-color: #8b0000; /* Темно-красный фон для сообщений пользователя */
+    color: #fff; /* Белый текст */
+    align-self: flex-end;
+}
+
+.bot-message {
+    background-color: #ff0000; /* Красный фон для сообщений бота */
+    color: #fff; /* Белый текст */
+    align-self: flex-start;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 22px);
+    margin-bottom: 10px;
+    background-color: #333; /* Темный фон для ввода текста */
+    color: #fff; /* Белый текст */
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff0000; /* Красная кнопка */
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #8b0000; /* Темно-красная кнопка при наведении */
+}

@@ -188,6 +188,15 @@
             background: linear-gradient(to bottom, #ff4d4d, #8b0000); /* Градиент от светло-красного до бордового при наведении */
         }
         
+        .orange-button {
+            background: linear-gradient(to bottom, #ffa500, #ff4500) !important; /* Градиент от оранжевого до темно-оранжевого */
+        }
+        
+        .orange-button:hover {
+            background: linear-gradient(to bottom, #ffa500, #ff4500) !important; /* Градиент от оранжевого до темно-оранжевого при наведении */
+        }
+        
+        
         .character-panel {
             background: linear-gradient(to bottom, #000, #4a1517); /* Градиент от бордового до черного */
             border-radius: 10px;
@@ -294,11 +303,14 @@
             
             Здесь ты сможешь интересно и с пользой провести время, в том числе и со своей компанией.
             
+            
             Для начала игры нажми на кнопку "отправить" - и погрузишься в захватывающее путешествие.
             
             Нейросеть будет отвечать текстом с описанием локаций и событий. Для включения звуков и изображений нужно переключить соответствующий чекбокс.
             
+            
             Текст и озвучивание генерируются в реальном времени. При подключении звуков  время ожидания ответа - до 30 секунд, изображений - до минуты.
+            
             
             Если нет ответа более трех минут  – возможно произошел обрыв на сервере, просто повторите запрос.
             
@@ -311,17 +323,17 @@
         
         <input type="text" id="user-input" placeholder="Type your message here...">
         <button onclick="sendMessage()">Отправить</button>
-        <button onclick="startRecording()">🎤 Начать запись</button>
+        <button id="start-recording-button" onclick="startRecording()">🎤 Начать запись</button>
         <button onclick="stopRecording()">🛑 Остановить запись</button>
     </div>
     <div class="character-panel">
         <!-- Character panel content will be dynamically generated -->
     </div>
-
+    
     <audio id="voice-audio">
         <source id="voice-audio-source" src=""/>
     </audio>
-
+    
     <audio id="sound-audio">
         <source id="sound-audio-source" src=""/>
     </audio>
@@ -352,6 +364,8 @@
         let sound_b64;
         let image_b64;
 
+        let generating_response = false; // Генерируется ли сейчас ответ
+        
         function toggleModelMenu() {
             const menu = document.getElementById('model-menu');
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
@@ -404,6 +418,13 @@
         }
         
         async function sendMessage() {
+            if (generating_response) {
+                alert('Происходит обработка предыдущего сообщения, подождите! (Это может быть генерация ответа, озвучивания, изображений или звуков)');
+                return;
+            }
+
+            generating_response = true;
+
             const userInput = document.getElementById('user-input').value;
             const chatBox = document.getElementById('chat-box');
             
@@ -416,12 +437,12 @@
             let botMessages = document.getElementsByClassName('bot-message')
             let charactersPanels = document.getElementsByClassName('character')
             let hasHistory = userMessages.length > 0
-
+            
             let history
             let question
             let answer
             let characters = ''
-
+            
             if (hasHistory) {
                 history = ''
                 for (let i = 1; i < userMessages.length; i++) {
@@ -434,7 +455,7 @@
                     characters += charactersPanels[i].textContent + "\n"
                 }
             }
-
+            
             // Add user message to chat box
             chatBox.innerHTML += `<div class="user-message">${formattedUserInput}</div>`;
             document.getElementById('user-input').value = '';
@@ -443,15 +464,12 @@
             chatBox.scrollTop = chatBox.scrollHeight;
             
             let body
-
+            
             if (hasHistory) {
                 body = JSON.stringify({
                     message: userInput,
                     model: selectedModel,
                     style: selectedStyle,
-                    soundsEnabled: soundsEnabled, // Add soundsEnabled to the request
-                    imagesEnabled: imagesEnabled,
-                    voiceEnabled: voiceEnabled, // Add voiceEnabled to the request
                     hasHistory: "True",
                     history: history,
                     question: question,
@@ -462,13 +480,10 @@
                     message: userInput,
                     model: selectedModel,
                     style: selectedStyle,
-                    soundsEnabled: soundsEnabled, // Add soundsEnabled to the request
-                    imagesEnabled: imagesEnabled,
-                    voiceEnabled: voiceEnabled, // Add voiceEnabled to the request
                     hasHistory: "False"
                 })
             }
-
+            
             // Send message to the server
             const response = await fetch(window.location.href + 'chat', {
                 method: 'POST',
@@ -484,26 +499,26 @@
             // Replace ***text*** with <b>text</b> in bot response
             const formattedBotResponse = data.message.replace(/\*\*\*(.*?)\*\*\*/g, '<b>$1</b>');
             
+            if (voiceEnabled) {
+                voice_b64 = await request_voice(data.message);
+                textPlay();
+            }
+
             // Add bot response to chat box
             chatBox.innerHTML += `<div class="bot-message">${formattedBotResponse.replace(/\n/g, '<br>')}</div>`;
             
             // Scroll to the bottom of the chat box
             chatBox.scrollTop = chatBox.scrollHeight;
             
-            // Speak the bot response if sounds are enabled
+            
             if (soundsEnabled) {
-                sound_b64 = data.sound
+                sound_b64 = await request_sound(data.message);
                 soundPlay();
             }
-            
+
             if (imagesEnabled) {
-                image_b64 = data.image
+                image_b64 = await request_image(data.message);
                 Image();
-            }
-            
-            if (voiceEnabled) {
-                voice_b64 = data.voice
-                textPlay();
             }
             
             const characterPanel = document.querySelector('.character-panel');
@@ -520,9 +535,13 @@
                     <p>Интеллект: ${stats['интеллект']}</p>`;
                 characterPanel.appendChild(characterDiv);
             }
+
+            generating_response = false;
         }
         
         function startRecording() {
+            const startButton = document.getElementById('start-recording-button');
+            startButton.classList.add('orange-button');
             if (!('webkitSpeechRecognition' in window)) {
                 alert('Ваш браузер не поддерживает Web Speech API. Пожалуйста, используйте Google Chrome.');
                 return;
@@ -546,6 +565,8 @@
             
             recognition.onerror = function(event) {
                 console.error('Voice recognition error:', event.error);
+                alert('Доступно в локальной версии');
+		stopRecording();
             };
             
             recognition.onend = function() {
@@ -559,6 +580,9 @@
         }
         
         function stopRecording() {
+            const startButton = document.getElementById('start-recording-button');
+            startButton.classList.remove('orange-button');
+            startButton.classList.add('start-button');
             if (recognition) {
                 recognition.stop();
                 console.log('Voice recognition stopped.');
@@ -576,6 +600,48 @@
                 sendMessage();
             }
         });
+        
+        async function request_sound(message) {
+            const response = await fetch(window.location.href + 'get_sound', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: message
+                })
+            });
+            const sound_data = await response.json();
+            return sound_data.sound;
+        }
+
+        async function request_voice(message) {
+            const response = await fetch(window.location.href + 'get_voice', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: message
+                })
+            });
+            const voice_data = await response.json();
+            return voice_data.voice;
+        }
+
+        async function request_image(message) {
+            const response = await fetch(window.location.href + 'get_image', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: message
+                })
+            });
+            const image_data = await response.json();
+            return image_data.image;
+        }
     </script>
     <script>
         function soundPlay() {

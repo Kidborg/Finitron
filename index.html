@@ -11,89 +11,113 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #000; /* Черный фон */
-            color: #fff; /* Белый текст */
+            background-color: #000;
+            /* Черный фон */
+            color: #fff;
+            /* Белый текст */
             margin: 0;
         }
-        
+
         .chat-container {
-            background: linear-gradient(to bottom, #8b0000, #000); /* Градиент от бордового до черного */
+            background: linear-gradient(to bottom, #8b0000, #000);
+            /* Градиент от бордового до черного */
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Красная тень */
-            width: 90%; /* Устанавливаем максимальную ширину */
-            max-width: 2000px; /* Ограничиваем максимальную ширину */
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            /* Красная тень */
+            width: 90%;
+            /* Устанавливаем максимальную ширину */
+            max-width: 2000px;
+            /* Ограничиваем максимальную ширину */
             padding: 20px;
             display: flex;
             flex-direction: column;
-            height: 80vh; /* Устанавливаем фиксированную высоту контейнера */
+            height: 80vh;
+            /* Устанавливаем фиксированную высоту контейнера */
         }
-        
+
         .chat-box {
             flex: 1;
-            overflow-y: auto; /* Добавляем вертикальную прокрутку */
+            overflow-y: auto;
+            /* Добавляем вертикальную прокрутку */
             margin-bottom: 10px;
-            white-space: pre-wrap; /* Сохраняем пробелы и табуляции */
-            background-color: #000; /* Черный фон */
-            border: 1px solid #8b0000; /* Темно-красная рамка */
+            white-space: pre-wrap;
+            /* Сохраняем пробелы и табуляции */
+            background-color: #000;
+            /* Черный фон */
+            border: 1px solid #8b0000;
+            /* Темно-красная рамка */
             padding: 10px;
         }
-        
-        .user-message, .bot-message {
+
+        .user-message,
+        .bot-message {
             padding: 10px;
             margin: 5px 0;
             border-radius: 5px;
-            word-wrap: break-word; /* Переносим слова, если они слишком длинные */
+            word-wrap: break-word;
+            /* Переносим слова, если они слишком длинные */
         }
-        
+
         .user-message {
-            background-color: #4b0000; /* Темно-бордовый фон для сообщений пользователя */
-            color: #fff; /* Белый текст */
+            background-color: #4b0000;
+            /* Темно-бордовый фон для сообщений пользователя */
+            color: #fff;
+            /* Белый текст */
             align-self: flex-end;
         }
-        
+
         .bot-message {
-            background-color: #660000; /* Темно-красный фон для сообщений бота */
-            color: #fff; /* Белый текст */
+            background-color: #660000;
+            /* Темно-красный фон для сообщений бота */
+            color: #fff;
+            /* Белый текст */
             align-self: flex-start;
         }
-        
+
         input[type="text"] {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             width: calc(100% - 22px);
             margin-bottom: 10px;
-            background-color: #333; /* Темный фон для ввода текста */
-            color: #fff; /* Белый текст */
+            background-color: #333;
+            /* Темный фон для ввода текста */
+            color: #fff;
+            /* Белый текст */
         }
-        
+
         button {
             padding: 10px;
             border: none;
             border-radius: 5px;
-            background: linear-gradient(to bottom, #ff0000, #8b0000); /* Градиент от красного до бордового */
+            background: linear-gradient(to bottom, #ff0000, #8b0000);
+            /* Градиент от красного до бордового */
             color: white;
             cursor: pointer;
         }
-        
+
         button:hover {
-            background: linear-gradient(to bottom, #ff4d4d, #8b0000); /* Градиент от светло-красного до бордового при наведении */
+            background: linear-gradient(to bottom, #ff4d4d, #8b0000);
+            /* Градиент от светло-красного до бордового при наведении */
         }
-        
+
         .code-container {
             position: relative;
-            border: 1px solid #8b0000; /* Темно-красная рамка */
+            border: 1px solid #8b0000;
+            /* Темно-красная рамка */
             border-radius: 5px;
             padding: 10px;
             margin: 10px 0;
-            background-color: #2c2c2c; /* Темный фон */
+            background-color: #2c2c2c;
+            /* Темный фон */
         }
-        
+
         .copy-button {
             position: absolute;
             top: 10px;
             right: 10px;
-            background: linear-gradient(to bottom, #ff0000, #8b0000); /* Градиент от красного до бордового */
+            background: linear-gradient(to bottom, #ff0000, #8b0000);
+            /* Градиент от красного до бордового */
             color: white;
             border: none;
             padding: 5px 10px;
@@ -101,35 +125,39 @@
             border-radius: 3px;
             transition: background-color 0.3s;
         }
-        
+
         .copy-button:hover {
-            background: linear-gradient(to bottom, #ff4d4d, #8b0000); /* Градиент от светло-красного до бордового при наведении */
+            background: linear-gradient(to bottom, #ff4d4d, #8b0000);
+            /* Градиент от светло-красного до бордового при наведении */
         }
-        
+
         .copy-button:active {
             background-color: #004080;
         }
-        
+
         .icon {
             position: absolute;
             left: 10px;
             top: 10px;
             font-size: 15px;
         }
-        
+
         .selectors {
             display: flex;
             gap: 20px;
             margin-bottom: 10px;
         }
-        
-        .model-selector, .style-selector {
+
+        .model-selector,
+        .style-selector {
             position: relative;
             display: inline-block;
         }
-        
-        .model-selector button, .style-selector button {
-            background: linear-gradient(to bottom, #ff0000, #8b0000); /* Градиент от красного до бордового */
+
+        .model-selector button,
+        .style-selector button {
+            background: linear-gradient(to bottom, #ff0000, #8b0000);
+            /* Градиент от красного до бордового */
             color: white;
             border: none;
             padding: 10px;
@@ -137,20 +165,25 @@
             border-radius: 3px;
             transition: background-color 0.3s;
         }
-        
-        .model-selector button:hover, .style-selector button:hover {
-            background: linear-gradient(to bottom, #ff4d4d, #8b0000); /* Градиент от светло-красного до бордового при наведении */
+
+        .model-selector button:hover,
+        .style-selector button:hover {
+            background: linear-gradient(to bottom, #ff4d4d, #8b0000);
+            /* Градиент от светло-красного до бордового при наведении */
         }
-        
-        .model-menu, .style-menu {
+
+        .model-menu,
+        .style-menu {
             display: none;
             position: absolute;
-            background-color: #2c2c2c; /* Темный фон */
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            background-color: #2c2c2c;
+            /* Темный фон */
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
         }
-        
-        .model-menu button, .style-menu button {
+
+        .model-menu button,
+        .style-menu button {
             color: white;
             padding: 12px 16px;
             text-decoration: none;
@@ -160,82 +193,97 @@
             background: none;
             text-align: left;
         }
-        
-        .model-menu button:hover, .style-menu button:hover {
-            background-color: #8b0000; /* Темно-красная кнопка при наведении */
+
+        .model-menu button:hover,
+        .style-menu button:hover {
+            background-color: #8b0000;
+            /* Темно-красная кнопка при наведении */
         }
-        
-        .model-menu button .checkmark, .style-menu button .checkmark {
+
+        .model-menu button .checkmark,
+        .style-menu button .checkmark {
             display: none;
             margin-right: 75px;
         }
-        
-        .model-menu button.selected .checkmark, .style-menu button.selected .checkmark {
-            display: inline;
+
+        .model-menu button.selected .checkmark,
+        .style-menu button.selected .checkmark {
+            display: contents;
         }
-        
+
         .voice-button {
             padding: 10px;
             border: none;
             border-radius: 5px;
-            background: linear-gradient(to bottom, #ff0000, #8b0000); /* Градиент от красного до бордового */
+            background: linear-gradient(to bottom, #ff0000, #8b0000);
+            /* Градиент от красного до бордового */
             color: white;
             cursor: pointer;
             margin-left: 10px;
         }
-        
+
         .voice-button:hover {
-            background: linear-gradient(to bottom, #ff4d4d, #8b0000); /* Градиент от светло-красного до бордового при наведении */
+            background: linear-gradient(to bottom, #ff4d4d, #8b0000);
+            /* Градиент от светло-красного до бордового при наведении */
         }
-        
+
         .orange-button {
-            background: linear-gradient(to bottom, #ffa500, #ff4500) !important; /* Градиент от оранжевого до темно-оранжевого */
+            background: linear-gradient(to bottom, #ffa500, #ff4500) !important;
+            /* Градиент от оранжевого до темно-оранжевого */
         }
-        
+
         .orange-button:hover {
-            background: linear-gradient(to bottom, #ffa500, #ff4500) !important; /* Градиент от оранжевого до темно-оранжевого при наведении */
+            background: linear-gradient(to bottom, #ffa500, #ff4500) !important;
+            /* Градиент от оранжевого до темно-оранжевого при наведении */
         }
-        
-        
+
+
         .character-panel {
-            background: linear-gradient(to bottom, #000, #4a1517); /* Градиент от бордового до черного */
+            background: linear-gradient(to bottom, #000, #4a1517);
+            /* Градиент от бордового до черного */
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Красная тень */
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            /* Красная тень */
             padding: 20px;
             margin-left: 20px;
-            width: 300px; /* Ширина панели */
-            height: 80vh; /* Высота панели */
-            overflow-y: auto; /* Вертикальная прокрутка */
+            width: 300px;
+            /* Ширина панели */
+            height: 80vh;
+            /* Высота панели */
+            overflow-y: auto;
+            /* Вертикальная прокрутка */
         }
-        
+
         .character {
             margin-bottom: 20px;
         }
-        
+
         .character h3 {
             margin: 0;
             padding: 0;
             font-size: 1.2em;
-            color: #ff0000; /* Красный цвет для заголовков */
+            color: #ff0000;
+            /* Красный цвет для заголовков */
         }
-        
+
         .character p {
             margin: 5px 0;
             padding: 0;
         }
+
         .switch {
             position: relative;
             display: inline-block;
             width: 60px;
             height: 34px;
         }
-        
+
         .switch input {
             opacity: 0;
             width: 0;
             height: 0;
         }
-        
+
         .slider {
             position: absolute;
             cursor: pointer;
@@ -247,7 +295,7 @@
             transition: .4s;
             border-radius: 34px;
         }
-        
+
         .slider:before {
             position: absolute;
             content: "";
@@ -259,24 +307,31 @@
             transition: .4s;
             border-radius: 50%;
         }
-        
-        input:checked + .slider {
+
+        input:checked+.slider {
             background-color: #a52a2a;
         }
-        
-        input:checked + .slider:before {
+
+        input:checked+.slider:before {
             transform: translateX(26px);
         }
     </style>
 </head>
+
 <body>
     <div class="chat-container">
         <div class="selectors">
             <div class="model-selector">
                 <button onclick="toggleModelMenu()">Выбрать модель</button>
                 <div class="model-menu" id="model-menu">
-                    <button onclick="selectModel('gpt-4o')" id="model-gpt-4o"><span class="checkmark">✔</span> GPT-4o</button>
-                    <button onclick="selectModel('gpt-4-turbo')" id="model-gpt-4-turbo"><span class="checkmark">✔</span> GPT-4 Turbo</button>
+                    <button onclick="selectModel('gpt-4o-mini')" id="model-gpt-4o-mini"><span class="checkmark">✔
+                        </span>GPT-4o-mini</button>
+                    <button onclick="selectModel('blackbox')" id="model-blackbox"><span class="checkmark">✔
+                        </span>Gemini</button>
+                    <button onclick="selectModel('pizzagpt')" id="model-pizzagpt"><span class="checkmark">✔ </span>GPT-4
+                        V1</button>
+                    <button onclick="selectModel('ddg')" id="model-ddg"><span class="checkmark">✔ </span>GPT-4
+                        V2</button>
                 </div>
             </div>
             <label class="switch">
@@ -296,31 +351,31 @@
             <label for="toggle-voice">Озвучивание</label>
         </div>
         <div class="chat-box" id="chat-box"></div>
-        
-        <div id="welcome-message" class="bot-message", align="center">
-            
-            Путник,  приветствую тебя в игре "Подземелья и Драконы", где сюжет и атмосфера создаются нейросетями!
-            
-            Здесь ты сможешь интересно и с пользой провести время, в том числе и со своей компанией.
-            
-            
-            Для начала игры нажми на кнопку "отправить" - и погрузишься в захватывающее путешествие.
-            
-            Нейросеть будет отвечать текстом с описанием локаций и событий. Для включения звуков и изображений нужно переключить соответствующий чекбокс.
-            
-            
-            Текст и озвучивание генерируются в реальном времени. При подключении звуков  время ожидания ответа - до 30 секунд, изображений - до минуты.
-            
-            
-            Если нет ответа более трех минут  – возможно произошел обрыв на сервере, просто повторите запрос.
-            
-            По всем вопросам и пожеланиям обращайтесь в Telegram: @kidborg или ВКонтакте: https://vk.com/kidborg
-            
-            
-            Увлекательного путешествия!
-            
+
+        <div id="welcome-message" class="bot-message" , align="center">
+
+		Путники, приветствую вас в игре "Подземелья и Драконы", где сюжет и атмосфера создаются нейросетями! 
+
+
+		Для начала игры можете выбрать нейросеть по своему желанию.  
+
+		Напишите где вы,  что собираетесь сделать и нажмите кнопку отправить. 
+
+		Нейросеть ответит соответствующим текстом с описанием локации и событий.  
+
+		Для включения изображений и звуков переключите соответствующий чекбокс.  Для передачи сообщений голосом – включите микрофон.  
+
+		Текст и звуки генерируются в реальном времени, изображения - до минуты.  Если изображение генерируется долго – можно  продолжить игру, не дожидаясь его, нажав «Отмена» в Push-уведомлении, которое появляется каждые 30 секунд. 
+
+
+
+		По всем вопросам и пожеланиям обращайтесь в Telegram: @kidborg или ВКонтакте: https://vk.com/kidborg 
+
+
+		Увлекательного путешествия! 
+
         </div>
-        
+
         <input type="text" id="user-input" placeholder="Type your message here...">
         <button onclick="sendMessage()">Отправить</button>
         <button id="start-recording-button" onclick="startRecording()">🎤 Начать запись</button>
@@ -329,58 +384,60 @@
     <div class="character-panel">
         <!-- Character panel content will be dynamically generated -->
     </div>
-    
-    <audio id="voice-audio">
-        <source id="voice-audio-source" src=""/>
-    </audio>
-    
-    <audio id="sound-audio">
-        <source id="sound-audio-source" src=""/>
-    </audio>
-    
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        const fetchTimeout = (url, options, timeout = 3000) => {
+            const controller = new AbortController();
+            const id = setTimeout(() => controller.abort(), timeout); // Время вышло! 
+            return fetch(url, { ...options, signal: controller.signal })
+                .finally(() => clearTimeout(id)); // Не забудьте убрать за собой!
+        };
+
+        document.addEventListener('DOMContentLoaded', function () {
             const chatBox = document.getElementById('chat-box');
             const welcomeMessage = document.getElementById('welcome-message');
             chatBox.appendChild(welcomeMessage);
-            
+
             // Add event listener for Enter key
-            document.getElementById('user-input').addEventListener('keydown', function(event) {
+            document.getElementById('user-input').addEventListener('keydown', function (event) {
                 if (event.key === 'Enter') {
                     sendMessage();
                 }
             });
         });
-        
-        
+
+
         let selectedModel = 'gpt-4o'; // Default model
         let selectedStyle = 'calm'; // Default style
         let recognition;
-        let imagesEnabled = false; // Default state for images
-        let soundsEnabled = false; // Default state for sounds
-        let voiceEnabled = false; // Default state for voice
-        
+        let imagesEnabled = document.getElementById('toggle-images').checked; // Default state for images
+        let soundsEnabled = document.getElementById('toggle-sounds').checked; // Default state for sounds
+        let voiceEnabled = document.getElementById('toggle-voice').checked; // Default state for voice
+
         let voice_b64;
         let sound_b64;
         let image_b64;
 
         let generating_response = false; // Генерируется ли сейчас ответ
-        
+        let cancel_image_gen = false; // Отменить ли генерацию изображения
+        let counter = 0; // Счётчик запросов генерации изображения
+        let lastQuestion = ''
+
         function toggleModelMenu() {
             const menu = document.getElementById('model-menu');
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
-        
+
         function toggleStyleMenu() {
             const menu = document.getElementById('style-menu');
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
-        
+
         function selectModel(model) {
             selectedModel = model;
             toggleModelMenu();
             console.log('Selected model:', selectedModel);
-            
+
             // Update checkmarks
             const buttons = document.querySelectorAll('.model-menu button');
             buttons.forEach(button => {
@@ -388,12 +445,12 @@
             });
             document.getElementById(`model-${model}`).classList.add('selected');
         }
-        
+
         function selectStyle(style) {
             selectedStyle = style;
             toggleStyleMenu();
             console.log('Selected style:', selectedStyle);
-            
+
             // Update checkmarks
             const buttons = document.querySelectorAll('.style-menu button');
             buttons.forEach(button => {
@@ -401,22 +458,22 @@
             });
             document.getElementById(`style-${style}`).classList.add('selected');
         }
-        
+
         function toggleImages() {
             imagesEnabled = !imagesEnabled;
             console.log('Images enabled:', imagesEnabled);
         }
-        
+
         function toggleSounds() {
             soundsEnabled = !soundsEnabled;
             console.log('Sounds enabled:', soundsEnabled);
         }
-        
+
         function toggleVoice() {
             voiceEnabled = !voiceEnabled;
             console.log('Voice enabled:', voiceEnabled);
         }
-        
+
         async function sendMessage() {
             if (generating_response) {
                 alert('Происходит обработка предыдущего сообщения, подождите! (Это может быть генерация ответа, озвучивания, изображений или звуков)');
@@ -426,45 +483,41 @@
             generating_response = true;
 
             const userInput = document.getElementById('user-input').value;
-            const chatBox = document.getElementById('chat-box');
-            
+
             console.log("User input:", userInput);
-            
+
             // Replace ***text*** with <b>text</b>
             const formattedUserInput = userInput.replace(/\*\*\*(.*?)\*\*\*/g, '<b>$1</b>');
-            
+
             let userMessages = document.getElementsByClassName('user-message')
             let botMessages = document.getElementsByClassName('bot-message')
             let charactersPanels = document.getElementsByClassName('character')
             let hasHistory = userMessages.length > 0
-            
+
             let history
             let question
             let answer
             let characters = ''
-            
+
             if (hasHistory) {
                 history = ''
-                for (let i = 1; i < userMessages.length; i++) {
-                    history += botMessages[i].textContent + "\n"
-                    history += userMessages[i].textContent + "\n"
+		tillMessage = userMessages.length - 3
+		if (tillMessage < 0) tillMessage = 0;
+                for (let i = userMessages.length - 1; i > tillMessage; i--) {
+                    if (botMessages[i].textContent != 'Ошибка при генерации события, повторите ответ или выберите другую модель нейросети') {
+                        history += botMessages[i].textContent + "\n"
+                        // history += userMessages[i].textContent + "\n"
+                    }
                 }
-                question = botMessages[botMessages.length - 1].textContent
+                question = lastQuestion
                 answer = userMessages[userMessages.length - 1].textContent
                 for (let i = 0; i < charactersPanels.length; i++) {
                     characters += charactersPanels[i].textContent + "\n"
                 }
             }
-            
-            // Add user message to chat box
-            chatBox.innerHTML += `<div class="user-message">${formattedUserInput}</div>`;
-            document.getElementById('user-input').value = '';
-            
-            // Scroll to the bottom of the chat box
-            chatBox.scrollTop = chatBox.scrollHeight;
-            
+
             let body
-            
+
             if (hasHistory) {
                 body = JSON.stringify({
                     message: userInput,
@@ -483,7 +536,16 @@
                     hasHistory: "False"
                 })
             }
-            
+
+            const chatBox = document.getElementById('chat-box');
+
+            // Add user message to chat box
+            chatBox.innerHTML += `<div class="user-message">${userInput}</div>`;
+            document.getElementById('user-input').value = '';
+
+            // Scroll to the bottom of the chat box
+            chatBox.scrollTop = chatBox.scrollHeight;
+
             // Send message to the server
             const response = await fetch(window.location.href + 'chat', {
                 method: 'POST',
@@ -493,24 +555,22 @@
                 body: body
             });
             const data = await response.json();
-            
+
             console.log("Bot response:", data.message);
-            
+
             // Replace ***text*** with <b>text</b> in bot response
             const formattedBotResponse = data.message.replace(/\*\*\*(.*?)\*\*\*/g, '<b>$1</b>');
-            
+            if (formattedBotResponse != 'Ошибка при генерации события, повторите ответ или выберите другую модель нейросети') {
+                lastQuestion = formattedBotResponse;
+            }
+
+  	    delayPrintMessage(formattedBotResponse, data)
+
             if (voiceEnabled) {
                 voice_b64 = await request_voice(data.message);
                 textPlay();
             }
 
-            // Add bot response to chat box
-            chatBox.innerHTML += `<div class="bot-message">${formattedBotResponse.replace(/\n/g, '<br>')}</div>`;
-            
-            // Scroll to the bottom of the chat box
-            chatBox.scrollTop = chatBox.scrollHeight;
-            
-            
             if (soundsEnabled) {
                 sound_b64 = await request_sound(data.message);
                 soundPlay();
@@ -520,65 +580,53 @@
                 image_b64 = await request_image(data.message);
                 Image();
             }
-            
-            const characterPanel = document.querySelector('.character-panel');
-            characterPanel.innerHTML = '';
-            for (const [character, stats] of Object.entries(data.characters)) {
-                const characterDiv = document.createElement('div');
-                characterDiv.classList.add('character');
-                characterDiv.innerHTML =
-                `<h3>${character}</h3>
-                    <p>Здоровье: ${stats['здоровье']}</p>
-                    <p>Сила: ${stats['сила']}</p>
-                    <p>Защита: ${stats['защита']}</p>
-                    <p>Энергия: ${stats['энергия']}</p>
-                    <p>Интеллект: ${stats['интеллект']}</p>`;
-                characterPanel.appendChild(characterDiv);
-            }
 
             generating_response = false;
         }
-        
+
         function startRecording() {
             const startButton = document.getElementById('start-recording-button');
+	    if (startButton.classList.contains('orange-button')) {
+		return;
+	    }
             startButton.classList.add('orange-button');
             if (!('webkitSpeechRecognition' in window)) {
                 alert('Ваш браузер не поддерживает Web Speech API. Пожалуйста, используйте Google Chrome.');
                 return;
             }
-            
+
             recognition = new webkitSpeechRecognition();
             recognition.continuous = true; // Continuous recognition
             recognition.interimResults = false;
             recognition.lang = 'ru-RU'; // Set language to Russian
-            
-            recognition.onstart = function() {
+
+            recognition.onstart = function () {
                 console.log('Voice recognition started.');
             };
-            
-            recognition.onresult = function(event) {
+
+            recognition.onresult = function (event) {
                 const transcript = event.results[event.resultIndex][0].transcript;
                 document.getElementById('user-input').value += transcript;
                 console.log('Voice input:', transcript);
                 sendMessage(); // Automatically send the message after voice input
             };
-            
-            recognition.onerror = function(event) {
+
+            recognition.onerror = function (event) {
                 console.error('Voice recognition error:', event.error);
-                alert('Доступно в локальной версии');
-		stopRecording();
+                alert('Микрофон не подключен');
+                stopRecording();
             };
-            
-            recognition.onend = function() {
+
+            recognition.onend = function () {
                 console.log('Voice recognition ended.');
                 if (recognition) {
                     recognition.start(); // Restart recognition if it ends
                 }
             };
-            
+
             recognition.start();
         }
-        
+
         function stopRecording() {
             const startButton = document.getElementById('start-recording-button');
             startButton.classList.remove('orange-button');
@@ -589,18 +637,18 @@
                 recognition = null; // Clear the recognition object
             }
         }
-        
+
         // Set default selected model and style
         document.getElementById(`model-${selectedModel}`).classList.add('selected');
         document.getElementById(`style-${selectedStyle}`).classList.add('selected');
-        
+
         // Add event listener for Enter key
-        document.getElementById('user-input').addEventListener('keydown', function(event) {
+        document.getElementById('user-input').addEventListener('keydown', function (event) {
             if (event.key === 'Enter') {
                 sendMessage();
             }
         });
-        
+
         async function request_sound(message) {
             const response = await fetch(window.location.href + 'get_sound', {
                 method: 'POST',
@@ -629,6 +677,7 @@
             return voice_data.voice;
         }
 
+
         async function request_image(message) {
             const response = await fetch(window.location.href + 'get_image', {
                 method: 'POST',
@@ -636,24 +685,89 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    message: message
+                    message: message,
                 })
             });
-            const image_data = await response.json();
-            return image_data.image;
+            const reply = await response.json();
+            const uuid = reply.uuid;
+            counter = 0;
+
+            while (counter <= 10) {
+                const response = await fetch(window.location.href + 'get_image', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        uuid: uuid
+                    })
+                });
+                let reply_new = await response.json()
+
+                if (reply_new.is_ready == 'True') {
+                    counter = 0;
+                    return reply_new.image;
+                }
+
+                counter += 1;
+                console.log("Попытка запросить изображение: " + counter);
+
+                if (counter > 1 && ! confirm('Если хотите продолжить генерацию изображения, то нажмите «ОК»'))
+                    break;
+
+                await new Promise(resolve => setTimeout(resolve, 30000));
+            }
+
+            return '';
         }
+	
+	async function delayPrintMessage(formattedBotResponse, data) {
+            const chatBox = document.getElementById('chat-box');
+
+    	    if (imagesEnabled) {
+                await new Promise(resolve => setTimeout(resolve, 5000));
+	    }
+	
+            // Add bot response to chat box
+            chatBox.innerHTML += `<div class="bot-message">${formattedBotResponse.replace(/\n/g, '<br>')}</div>`;
+
+            // Scroll to the bottom of the chat box
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            const characterPanel = document.querySelector('.character-panel');
+            characterPanel.innerHTML = '';
+            for (const [character, stats] of Object.entries(data.characters)) {
+                const characterDiv = document.createElement('div');
+                characterDiv.classList.add('character');
+                characterDiv.innerHTML =
+                    `<h3>${character}</h3>
+                    <p>Здоровье: ${stats['здоровье']}</p>
+                    <p>Сила: ${stats['сила']}</p>
+                    <p>Защита: ${stats['защита']}</p>
+                    <p>Энергия: ${stats['энергия']}</p>
+                    <p>Интеллект: ${stats['интеллект']}</p>`;
+                characterPanel.appendChild(characterDiv);
+            }
+	}
     </script>
     <script>
         function soundPlay() {
             console.log("Sound 1");
+            if (sound_b64 == '') {
+                alert('Звуки временно недоступны, попробуйте позже');
+            }
             new Audio("data:audio/mp3;base64," + sound_b64).play()
         }
-        
+
         function textPlay() {
             console.log("Sound 2")
+            if (voice_b64 == '') {
+                alert('Озвучивание временно недоступно, попробуйте позже');
+            }
             new Audio("data:audio/mp3;base64," + voice_b64).play()
         }
-        
+
         function Image() {
             const chatBox = document.getElementById('chat-box');
             const img = document.createElement('img');
@@ -665,4 +779,5 @@
         }
     </script>
 </body>
+
 </html>
